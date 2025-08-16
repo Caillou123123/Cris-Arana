@@ -1,0 +1,7 @@
+echo "# Cris-Arana" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Caillou123123/Cris-Arana.git
+git push -u origin main
