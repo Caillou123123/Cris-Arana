@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events — The Mindset Switch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <header class="border-b bg-white/80 backdrop-blur sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/site/index.html" class="font-semibold text-lg">The Mindset Switch</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-indigo-600" href="/site/index.html">Home</a>
+          <a class="hover:text-indigo-600" href="/site/events.html">Events</a>
+          <a class="hover:text-indigo-600" href="/site/podcasts.html">Podcasts</a>
+          <a class="hover:text-indigo-600" href="/site/community.html">Community</a>
+          <a class="inline-flex items-center gap-2 text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 rounded-md" href="/site/signup.html">Sign up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="max-w-6xl mx-auto px-4 py-10">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h1 class="text-3xl font-bold">Events</h1>
+            <p class="text-slate-600 mt-1">Browse upcoming events and book a meeting.</p>
+          </div>
+          <button id="openScheduler" class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Schedule a meeting</button>
+        </div>
+        <div class="mt-6 bg-white rounded-xl shadow ring-1 ring-slate-200 p-4">
+          <div id="calendar"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scheduler Modal -->
+    <div id="schedulerModal" class="hidden fixed inset-0 z-50">
+      <div class="absolute inset-0 bg-slate-900/60" aria-hidden="true"></div>
+      <div class="relative max-w-4xl mx-auto mt-10 bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b">
+          <h2 class="font-semibold">Book a time</h2>
+          <button id="closeScheduler" class="p-1 rounded hover:bg-slate-100" aria-label="Close">✕</button>
+        </div>
+        <div class="p-0">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/your-username/30min" style="min-width: 320px; height: 700px"></div>
+        </div>
+        <div class="p-4 text-sm text-slate-600 border-t">
+          Don't have Calendly? Replace the URL above with your scheduler link or provide a WhatsApp/Email in the community page.
+        </div>
+      </div>
+    </div>
+
+    <footer class="border-t bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+        © <span id="year"></span> The Mindset Switch • All rights reserved
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('openScheduler').addEventListener('click', () => {
+        document.getElementById('schedulerModal').classList.remove('hidden');
+      });
+      document.getElementById('closeScheduler').addEventListener('click', () => {
+        document.getElementById('schedulerModal').classList.add('hidden');
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const exampleDate = `${year}-${month}-15`;
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          height: 'auto',
+          selectable: true,
+          dateClick: function(info) {
+            document.getElementById('schedulerModal').classList.remove('hidden');
+          },
+          events: [
+            { title: 'Podcast Live Q&A', start: exampleDate },
+            { title: 'Community AMA', start: `${year}-${month}-22` },
+          ],
+        });
+        calendar.render();
+      });
+    </script>
+  </body>
+</html>
