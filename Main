@@ -1,1 +1,2 @@
-
+cd /workspace/Cris-Arana
+npx --yes http-server site -p 4000 -c-1
