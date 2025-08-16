@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cris Arana — The Mindset Switch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="The Mindset Switch by Cris Arana — podcast, events, and community." />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <header class="border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/site/index.html" class="font-semibold text-lg">The Mindset Switch</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-indigo-600" href="/site/index.html">Home</a>
+          <a class="hover:text-indigo-600" href="/site/events.html">Events</a>
+          <a class="hover:text-indigo-600" href="/site/podcasts.html">Podcasts</a>
+          <a class="hover:text-indigo-600" href="/site/community.html">Community</a>
+          <a class="inline-flex items-center gap-2 text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 rounded-md" href="/site/signup.html">Sign up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="bg-gradient-to-b from-indigo-50 to-transparent">
+        <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Unlock your potential with The Mindset Switch</h1>
+            <p class="mt-4 text-slate-600 text-lg">Insights, conversations, and community by Cris Arana. Tune in to the podcast, join events, and connect with peers.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a class="px-5 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700" href="/site/podcasts.html">Listen to the Podcast</a>
+              <a class="px-5 py-3 rounded-md bg-slate-200 hover:bg-slate-300" href="/site/events.html">Upcoming Events</a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-indigo-200/40 rounded-3xl blur-2xl"></div>
+            <div class="relative aspect-video rounded-2xl bg-white shadow-xl ring-1 ring-slate-200 flex items-center justify-center">
+              <span class="text-slate-500">Featured content</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Single Dashboard (cards) -->
+      <section class="py-14">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-2xl font-bold">Dashboard</h2>
+          <p class="text-slate-600 mt-1">All key areas in one place.</p>
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <a href="/site/podcasts.html" class="group rounded-xl bg-white p-5 shadow ring-1 ring-slate-200 hover:shadow-md transition">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold">Podcasts</h3>
+                  <p class="text-sm text-slate-600 mt-1">Spotify & Apple links, latest episodes, and reviews.</p>
+                </div>
+                <span class="text-indigo-600 group-hover:translate-x-1 transition">→</span>
+              </div>
+            </a>
+            <a href="/site/events.html" class="group rounded-xl bg-white p-5 shadow ring-1 ring-slate-200 hover:shadow-md transition">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold">Events</h3>
+                  <p class="text-sm text-slate-600 mt-1">Interactive calendar and schedule a meeting.</p>
+                </div>
+                <span class="text-indigo-600 group-hover:translate-x-1 transition">→</span>
+              </div>
+            </a>
+            <a href="/site/community.html" class="group rounded-xl bg-white p-5 shadow ring-1 ring-slate-200 hover:shadow-md transition">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold">Community</h3>
+                  <p class="text-sm text-slate-600 mt-1">Join the WhatsApp group.</p>
+                </div>
+                <span class="text-indigo-600 group-hover:translate-x-1 transition">→</span>
+              </div>
+            </a>
+            <a href="/site/signup.html" class="group rounded-xl bg-white p-5 shadow ring-1 ring-slate-200 hover:shadow-md transition">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold">Sign Up</h3>
+                  <p class="text-sm text-slate-600 mt-1">Create your account to stay updated.</p>
+                </div>
+                <span class="text-indigo-600 group-hover:translate-x-1 transition">→</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+        © <span id="year"></span> The Mindset Switch • All rights reserved
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

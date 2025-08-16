@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community — The Mindset Switch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Join The Mindset Switch community on WhatsApp." />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <header class="border-b bg-white/80 backdrop-blur sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/site/index.html" class="font-semibold text-lg">The Mindset Switch</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-indigo-600" href="/site/index.html">Home</a>
+          <a class="hover:text-indigo-600" href="/site/events.html">Events</a>
+          <a class="hover:text-indigo-600" href="/site/podcasts.html">Podcasts</a>
+          <a class="hover:text-indigo-600" href="/site/community.html">Community</a>
+          <a class="inline-flex items-center gap-2 text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 rounded-md" href="/site/signup.html">Sign up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="max-w-3xl mx-auto px-4 py-16 text-center">
+        <h1 class="text-3xl font-bold">Join the Community</h1>
+        <p class="text-slate-600 mt-3">Connect with listeners, share wins, and get early access to events.</p>
+        <div class="mt-8">
+          <a href="https://chat.whatsapp.com/REPLACE_GROUP_INVITE" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-green-600 text-white hover:bg-green-700">
+            Join WhatsApp Group
+          </a>
+        </div>
+        <p class="text-sm text-slate-500 mt-3">Replace the link with your actual group invite code.</p>
+      </section>
+    </main>
+
+    <footer class="border-t bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+        © <span id="year"></span> The Mindset Switch • All rights reserved
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

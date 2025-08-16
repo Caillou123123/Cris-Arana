@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — The Mindset Switch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Create your account for The Mindset Switch updates and community." />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <header class="border-b bg-white/80 backdrop-blur sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/site/index.html" class="font-semibold text-lg">The Mindset Switch</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-indigo-600" href="/site/index.html">Home</a>
+          <a class="hover:text-indigo-600" href="/site/events.html">Events</a>
+          <a class="hover:text-indigo-600" href="/site/podcasts.html">Podcasts</a>
+          <a class="hover:text-indigo-600" href="/site/community.html">Community</a>
+          <a class="inline-flex items-center gap-2 text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 rounded-md" href="/site/signup.html">Sign up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="max-w-xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold">Create your account</h1>
+        <p class="text-slate-600 mt-1">Get podcast updates, event invites, and community announcements.</p>
+
+        <form id="signupForm" class="mt-8 bg-white rounded-xl shadow ring-1 ring-slate-200 p-6 space-y-5">
+          <div>
+            <label class="block text-sm font-medium" for="name">Full Name</label>
+            <input id="name" name="name" type="text" required class="mt-1 w-full rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="email">Email</label>
+            <input id="email" name="email" type="email" required class="mt-1 w-full rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium" for="interests">Interests</label>
+            <select id="interests" name="interests" class="mt-1 w-full rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500">
+              <option>Podcast</option>
+              <option>Events</option>
+              <option>Community</option>
+              <option>All of the above</option>
+            </select>
+          </div>
+          <div class="flex items-center">
+            <input id="agree" name="agree" type="checkbox" required class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
+            <label for="agree" class="ml-2 text-sm text-slate-600">I agree to receive email updates</label>
+          </div>
+          <button class="w-full px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700">Create account</button>
+          <p id="formMsg" class="text-sm text-slate-600 hidden">Thanks! You're on the list.</p>
+        </form>
+
+        <p class="text-xs text-slate-500 mt-4">Note: This demo form saves to your browser only. Connect to a provider like Formspree or a backend to collect submissions.</p>
+      </section>
+    </main>
+
+    <footer class="border-t bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+        © <span id="year"></span> The Mindset Switch • All rights reserved
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const form = document.getElementById('signupForm');
+      const msg = document.getElementById('formMsg');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          interests: document.getElementById('interests').value,
+          ts: new Date().toISOString(),
+        };
+        try {
+          const existing = JSON.parse(localStorage.getItem('ms_signups') || '[]');
+          existing.push(data);
+          localStorage.setItem('ms_signups', JSON.stringify(existing));
+          msg.classList.remove('hidden');
+          form.reset();
+        } catch (err) {
+          alert('Saved locally. Connect a backend to store signups.');
+        }
+      });
+    </script>
+  </body>
+</html>
